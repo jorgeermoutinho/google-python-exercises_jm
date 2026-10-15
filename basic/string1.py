@@ -24,8 +24,10 @@
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
-  # +++your code here+++
-  return
+    if count >= 10:
+        count = str("many")
+        str("Number of donuts: ") + str("count")
+    return str("Number of donuts: ") + str(count)
 
 
 # B. both_ends
@@ -34,8 +36,20 @@ def donuts(count):
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
 def both_ends(s):
-  # +++your code here+++
-  return
+    length = len(s)
+    if length < 2:
+        return str("")
+    else:
+        s1 = str(s[0])
+        s2 = str(s[1])
+        s3 = str(s[-2])
+        s4 = str(s[-1])
+        string = s1+s2+s3+s4
+        s1n = len(string)
+        if s1n > 2:
+            return str(string)
+        else: 
+            return str("")
 
 
 # C. fix_start
@@ -48,8 +62,10 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
-  # +++your code here+++
-  return
+  s1 = str(s[0])
+  replaced = list(s.replace(s1, "*"))
+  replaced[0] = s1
+  return str("".join(replaced))
 
 
 # D. MixUp
@@ -60,8 +76,13 @@ def fix_start(s):
 #   'dog', 'dinner' -> 'dig donner'
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
-  # +++your code here+++
-  return
+  chr_a = str(a[:2])
+  chr_b = str(b[:2])
+  replace_a = list(chr_a.replace(chr_a, chr_b))
+  replace_b = list(chr_b.replace(chr_b, chr_a))
+  str_a = str("".join(replace_b)) + str(b[2:])
+  str_b = str("".join(replace_a)) + str(a[2:])
+  return str_b + str(" ") + str_a
 
 
 # Provided simple test() function used in main() to print
